@@ -1,3 +1,14 @@
-- clean: []
-- link: {}
-- shell: []
+- clean: ['~']
+
+- link: 
+    ~/.dotfiles: ''
+    ~/.antigen: antigen
+    ~/.bashrc: bashrc
+    ~/.dircolors: dircolors
+    ~/.vimrc: vimrc
+    ~/.vim: vim/
+    ~/.zshrc: zshrc
+    ~/.bashrc: bashrc
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
