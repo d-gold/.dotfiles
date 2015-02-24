@@ -639,6 +639,7 @@ NeoBundle 'd-gold/vim-cute-ruby'
 NeoBundle 'd-gold/vim-cute-javascript' 
 NeoBundle 'd-gold/vim-java-syntax' 
 NeoBundle 'd-gold/groovy.vim' 
+NeoBundle 'd-gold/vim-minimap' 
 
 " }}}
 

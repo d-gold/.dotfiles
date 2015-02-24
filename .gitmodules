@@ -4,3 +4,21 @@
 [submodule "vim/bundle/neobundle.vim"]
 	path = vim/bundle/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim
+[submodule "vim/bundle/vim-cute-java"]
+	path = vim/bundle/vim-cute-java
+	url = git@github.com:d-gold/vim-cute-java.git
+[submodule "vim/bundle/vim-cute-javascript"]
+	path = vim/bundle/vim-cute-javascript
+	url = git@github.com:d-gold/vim-cute-javascript.git
+[submodule "vim/bundle/vim-cute-groovy"]
+	path = vim/bundle/vim-cute-groovy
+	url = git@github.com:d-gold/vim-cute-groovy.git
+[submodule "vim/bundle/vim-cute-ruby"]
+	path = vim/bundle/vim-cute-ruby
+	url = git@github.com:d-gold/vim-cute-ruby.git
+[submodule "vim/bundle/hive.vim"]
+	path = vim/bundle/hive.vim
+	url = git@github.com:d-gold/hive.vim.git
+[submodule "vim/bundle/vim-minimap"]
+	path = vim/bundle/vim-minimap
+	url = git@github.com:d-gold/vim-minimap.git
