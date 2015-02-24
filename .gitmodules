@@ -22,3 +22,168 @@
 [submodule "vim/bundle/vim-minimap"]
 	path = vim/bundle/vim-minimap
 	url = git@github.com:d-gold/vim-minimap.git
+[submodule "vim/bundle/vim-airline"]
+	path = vim/bundle/vim-airline
+	url = git@github.com:bling/vim-airline
+[submodule "vim/bundle/vimproc"]
+	path = vim/bundle/vimproc
+	url = git@github.com:Shougo/vimproc
+[submodule "vim/bundle/YouCompleteMe"]
+	path = vim/bundle/YouCompleteMe
+	url = git@github.com:Valloric/YouCompleteMe
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = git@github.com:scrooloose/nerdtree
+[submodule "vim/bundle/vim-bbye"]
+	path = vim/bundle/vim-bbye
+	url = git@github.com:moll/vim-bbye
+[submodule "vim/bundle/calendar.vim"]
+	path = vim/bundle/calendar.vim
+	url = git@github.com:itchyny/calendar.vim
+[submodule "vim/bundle/vim-molokai256"]
+	path = vim/bundle/vim-molokai256
+	url = git@github.com:joedicastro/vim-molokai256
+[submodule "vim/bundle/molokai"]
+	path = vim/bundle/molokai
+	url = git@github.com:tomasr/molokai
+[submodule "vim/bundle/badwolf"]
+	path = vim/bundle/badwolf
+	url = git@github.com:sjl/badwolf
+[submodule "vim/bundle/harlequin"]
+	path = vim/bundle/harlequin
+	url = git@github.com:nielsmadan/harlequin
+[submodule "vim/bundle/summerfruit256.vim"]
+	path = vim/bundle/summerfruit256.vim
+	url = git@github.com:vim-scripts/summerfruit256.vim
+[submodule "vim/bundle/vim-github256"]
+	path = vim/bundle/vim-github256
+	url = git@github.com:joedicastro/vim-github256
+[submodule "vim/bundle/csapprox"]
+	path = vim/bundle/csapprox
+	url = git@github.com:godlygeek/csapprox
+[submodule "vim/bundle/vim-colorschemes"]
+	path = vim/bundle/vim-colorschemes
+	url = git@github.com:flazz/vim-colorschemes
+[submodule "vim/bundle/vim-colors-solarized"]
+	path = vim/bundle/vim-colors-solarized
+	url = git@github.com:altercation/vim-colors-solarized
+[submodule "vim/bundle/Viridian-color-scheme"]
+	path = vim/bundle/Viridian-color-scheme
+	url = git@github.com:anaxagoras/Viridian-color-scheme
+[submodule "vim/bundle/ea_color"]
+	path = vim/bundle/ea_color
+	url = git@github.com:cazador481/ea_color
+[submodule "vim/bundle/vim-color-sbling"]
+	path = vim/bundle/vim-color-sbling
+	url = git@github.com:monyxie/vim-color-sbling
+[submodule "vim/bundle/vim256-color"]
+	path = vim/bundle/vim256-color
+	url = git@github.com:noah/vim256-color
+[submodule "vim/bundle/vim-lizatom-color-scheme"]
+	path = vim/bundle/vim-lizatom-color-scheme
+	url = git@github.com:sramekdesign/vim-lizatom-color-scheme
+[submodule "vim/bundle/vim-color-github"]
+	path = vim/bundle/vim-color-github
+	url = git@github.com:telamon/vim-color-github
+[submodule "vim/bundle/ubloh-color-scheme"]
+	path = vim/bundle/ubloh-color-scheme
+	url = git@github.com:ubloh/ubloh-color-scheme
+[submodule "vim/bundle/csv-color"]
+	path = vim/bundle/csv-color
+	url = git@github.com:vim-scripts/csv-color
+[submodule "vim/bundle/fisa-color-scheme"]
+	path = vim/bundle/fisa-color-scheme
+	url = git@github.com:vim-scripts/fisa-color-scheme
+[submodule "vim/bundle/Railscasts-Theme-GUIand256color"]
+	path = vim/bundle/Railscasts-Theme-GUIand256color
+	url = git@github.com:vim-scripts/Railscasts-Theme-GUIand256color
+[submodule "vim/bundle/vanzan_color"]
+	path = vim/bundle/vanzan_color
+	url = git@github.com:vim-scripts/vanzan_color
+[submodule "vim/bundle/seoul256.vim"]
+	path = vim/bundle/seoul256.vim
+	url = git@github.com:junegunn/seoul256.vim
+[submodule "vim/bundle/vim-commentary"]
+	path = vim/bundle/vim-commentary
+	url = git@github.com:tpope/vim-commentary
+[submodule "vim/bundle/Align"]
+	path = vim/bundle/Align
+	url = git@github.com:vim-scripts/Align
+[submodule "vim/bundle/tabular"]
+	path = vim/bundle/tabular
+	url = git@github.com:godlygeek/tabular
+[submodule "vim/bundle/vim-indent-object"]
+	path = vim/bundle/vim-indent-object
+	url = git@github.com:michaeljsmith/vim-indent-object
+[submodule "vim/bundle/vim-polyglot"]
+	path = vim/bundle/vim-polyglot
+	url = git@github.com:sheerun/vim-polyglot
+[submodule "vim/bundle/c.vim"]
+	path = vim/bundle/c.vim
+	url = git@github.com:vim-scripts/c.vim
+[submodule "vim/bundle/vim-chef"]
+	path = vim/bundle/vim-chef
+	url = git@github.com:vadv/vim-chef
+[submodule "vim/bundle/csv.vim"]
+	path = vim/bundle/csv.vim
+	url = git@github.com:vim-scripts/csv.vim
+[submodule "vim/bundle/vim-elixir"]
+	path = vim/bundle/vim-elixir
+	url = git@github.com:elixir-lang/vim-elixir
+[submodule "vim/bundle/javalog.vim"]
+	path = vim/bundle/javalog.vim
+	url = git@github.com:vim-scripts/javalog.vim
+[submodule "vim/bundle/groovyindent"]
+	path = vim/bundle/groovyindent
+	url = git@github.com:vim-scripts/groovyindent
+[submodule "vim/bundle/groovy.vim--Ruley"]
+	path = vim/bundle/groovy.vim--Ruley
+	url = git@github.com:vim-scripts/groovy.vim--Ruley
+[submodule "vim/bundle/haskell.vim"]
+	path = vim/bundle/haskell.vim
+	url = git@github.com:vim-scripts/haskell.vim
+[submodule "vim/bundle/haskellFold"]
+	path = vim/bundle/haskellFold
+	url = git@github.com:vim-scripts/haskellFold
+[submodule "vim/bundle/indenthaskell.vim"]
+	path = vim/bundle/indenthaskell.vim
+	url = git@github.com:vim-scripts/indenthaskell.vim
+[submodule "vim/bundle/haskellmode-vim"]
+	path = vim/bundle/haskellmode-vim
+	url = git@github.com:aniederl/haskellmode-vim
+[submodule "vim/bundle/Vim-HaskellConcealPlus"]
+	path = vim/bundle/Vim-HaskellConcealPlus
+	url = git@github.com:enomsg/Vim-HaskellConcealPlus
+[submodule "vim/bundle/neco-ghc"]
+	path = vim/bundle/neco-ghc
+	url = git@github.com:eagletmt/neco-ghc
+[submodule "vim/bundle/vim-hoogle"]
+	path = vim/bundle/vim-hoogle
+	url = git@github.com:Twinside/vim-hoogle
+[submodule "vim/bundle/HTML-AutoCloseTag"]
+	path = vim/bundle/HTML-AutoCloseTag
+	url = git@github.com:amirh/HTML-AutoCloseTag
+[submodule "vim/bundle/vim-css3-syntax"]
+	path = vim/bundle/vim-css3-syntax
+	url = git@github.com:hail2u/vim-css3-syntax
+[submodule "vim/bundle/vim-coloresque"]
+	path = vim/bundle/vim-coloresque
+	url = git@github.com:gorodinskiy/vim-coloresque
+[submodule "vim/bundle/vim-haml"]
+	path = vim/bundle/vim-haml
+	url = git@github.com:tpope/vim-haml
+[submodule "vim/bundle/slimv.vim"]
+	path = vim/bundle/slimv.vim
+	url = git@github.com:vim-scripts/slimv.vim
+[submodule "vim/bundle/vim-markdown"]
+	path = vim/bundle/vim-markdown
+	url = git@github.com:tpope/vim-markdown
+[submodule "vim/bundle/vim-markdown-folding"]
+	path = vim/bundle/vim-markdown-folding
+	url = git@github.com:nelstrom/vim-markdown-folding
+[submodule "vim/bundle/instant-markdown.vim"]
+	path = vim/bundle/instant-markdown.vim
+	url = git@github.com:vim-scripts/instant-markdown.vim
+[submodule "vim/bundle/vim-php-namespace"]
+	path = vim/bundle/vim-php-namespace
+	url = git@github.com:arnaud-lb/vim-php-namespace
