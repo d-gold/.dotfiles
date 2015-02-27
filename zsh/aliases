@@ -6,11 +6,14 @@ alias -g EO='>|/dev/null'
 
 # http://rayninfo.co.uk/tips/zshtips.html
 alias -g G='| grep -'
+alias -g GI='| grep -i -'
 alias -g P='2>&1 | $PAGER'
 alias -g L='| less'
-alias -g LA='2>&1 | less'
+alias -g LA='2>&1 | less -SR'
 alias -g M='| most'
 alias -g C='| wc -l'
 
 
-alias -s log="LESS -SR "
+alias -s log="less +F -SR "
+
+alias reload!='. ~/.zshrc'
