@@ -244,14 +244,9 @@ CORE=(
 )
 
 for file in $CORE ; do
-    [[ -f "$BASE/$file.zsh" ]] && . "$BASE/$file.zsh"
+    [[ -f "$BASE/$file" ]] && . "$BASE/$file"
 done
 
-[[ -f ~/.dotfiles/zsh/zsh_completions ]] && . ~/.dotfiles/zsh/zsh_completions
-[[ -f ~/.dotfiles/zsh/zsh_exports ]] && . ~/.dotfiles/zsh/zsh_exports
-[[ -f ~/.dotfiles/zsh/zsh_functions ]] && . ~/.dotfiles/zsh/zsh_functions
-[[ -f ~/.dotfiles/zsh/zsh_keys ]] && . ~/.dotfiles/zsh/zsh_keys
-[[ -f ~/.dotfiles/zsh/zsh_options ]] && . ~/.dotfiles/zsh/zsh_options
 
 [[ -f ~/.dotfiles/zsh/zsh_post ]] && . ~/.dotfiles/zsh/zsh_post
 
