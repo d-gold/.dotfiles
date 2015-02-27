@@ -1,0 +1,4 @@
+# For historical purposes
+HISTSIZE=10000
+SAVEHIST=8500
+

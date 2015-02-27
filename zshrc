@@ -1,12 +1,18 @@
+command_exists () {
+  type "$1" &> /dev/null;
+}
+
+is_linux () {
+    [[ $('uname') == 'Linux' ]];
+}
+
+is_osx () {
+    [[ $('uname') == 'Darwin' ]]
+}
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/home/dgold/.gvm/bin/gvm-init.sh" ]] && source "/home/dgold/.gvm/bin/gvm-init.sh"
-
-# For historical purposes
-HISTSIZE=10000
-SAVEHIST=8500
+[[ -f ~/.dotfiles/zsh/zsh_pre ]] && . ~/.dotfiles/zsh/zsh_pre
 
 source "$HOME/.antigen/antigen.zsh"
 
@@ -14,13 +20,13 @@ source "$HOME/.antigen/antigen.zsh"
 antigen use oh-my-zsh
 
 antigen bundles <<EOBUNDLES
+    willghatch/zsh-hooks
     autojump
     cabal
     catimg
     colored-man
     command-not-found
     common-aliases
-    debian
     dirhistory
     extract
     fasd
@@ -53,12 +59,27 @@ antigen bundles <<EOBUNDLES
     vi-mode
     web-search
     zsh-users/zsh-completions
+    zsh-users/zsh-syntax-highlighting
     zsh-users/zsh-history-substring-search
     unixorn/autoupdate-antigen.zshplugin
     unixorn/git-extra-commands
     voronkovich/gitignore.plugin.zsh
     ascii-soup/zsh-url-highlighter
-    zsh-users/zsh-syntax-highlighting
+    Tarrasch/zsh-functional
+    yerinle/zsh-gvm
+    supercrabtree/k
+    gerges/oh-my-zsh-jira-plus
+    bric3/nice-exit-code
+    willghatch/zsh-snippets
+    zsh-users/zaw
+    willghatch/zsh-zaw-extras
+    chrissicool/zsh-256color
+    Tarrasch/zsh-colors
+    oknowton/zsh-dwim
+    jocelynmallon/zshmarks
+    berkshelf/berkshelf-zsh-plugin
+    unixorn/rake-completion.zshplugin
+    RobSis/zsh-completion-generator
 EOBUNDLES
 
 zmodload zsh/terminfo
@@ -70,7 +91,16 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 # Load the theme.
-antigen theme agnoster
+antigen bundle nojhan/liquidprompt
+
+if is_osx; then
+    antigen bundle osx
+elif is_linux; then
+    antigen bundle debian
+    unalias ag
+fi
+
+[[ -f ~/.dotfiles/zsh/zsh_antigen ]] && . ~/.dotfiles/zsh/zsh_antigen
 
 # Tell antigen that you're done.
 antigen apply
@@ -192,4 +222,22 @@ alias info='info --vi-keys'
 
 mkcd() { mkdir -p $@; cd $_ }
 
-source ~/.zsh_site
+export PATH="~/bin:/usr/local/bin:$PATH"
+
+[[ -f ~/.dotfiles/zsh/zsh_aliases ]] && . ~/.dotfiles/zsh/zsh_aliases
+[[ -f ~/.dotfiles/zsh/zsh_completions ]] && . ~/.dotfiles/zsh/zsh_completions
+[[ -f ~/.dotfiles/zsh/zsh_exports ]] && . ~/.dotfiles/zsh/zsh_exports
+[[ -f ~/.dotfiles/zsh/zsh_functions ]] && . ~/.dotfiles/zsh/zsh_functions
+[[ -f ~/.dotfiles/zsh/zsh_keys ]] && . ~/.dotfiles/zsh/zsh_keys
+[[ -f ~/.dotfiles/zsh/zsh_options ]] && . ~/.dotfiles/zsh/zsh_options
+
+[[ -f ~/.dotfiles/zsh/zsh_post ]] && . ~/.dotfiles/zsh/zsh_post
+
+# Source user's zshrc
+[[ -f ~/.zsh_local ]] && . ~/.zsh_local
+[[ -f ~/.zsh_site ]] && . ~/.zsh_site
+
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/home/dgold/.gvm/bin/gvm-init.sh" ]] && source "/home/dgold/.gvm/bin/gvm-init.sh"
