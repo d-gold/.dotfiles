@@ -223,8 +223,30 @@ alias info='info --vi-keys'
 mkcd() { mkdir -p $@; cd $_ }
 
 export PATH="~/bin:/usr/local/bin:$PATH"
+BASE="$HOME/.dotfiles/zsh"
 
-[[ -f ~/.dotfiles/zsh/zsh_aliases ]] && . ~/.dotfiles/zsh/zsh_aliases
+CORE=(
+    completions
+    key_bindings
+    navigation
+    colors
+    editor
+    aliases
+    functions
+    exports
+    path
+    options
+    prompt
+    git
+    haskell
+    python
+    go
+)
+
+for file in $CORE ; do
+    [[ -f "$BASE/$file.zsh" ]] && . "$BASE/$file.zsh"
+done
+
 [[ -f ~/.dotfiles/zsh/zsh_completions ]] && . ~/.dotfiles/zsh/zsh_completions
 [[ -f ~/.dotfiles/zsh/zsh_exports ]] && . ~/.dotfiles/zsh/zsh_exports
 [[ -f ~/.dotfiles/zsh/zsh_functions ]] && . ~/.dotfiles/zsh/zsh_functions
