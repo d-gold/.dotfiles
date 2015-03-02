@@ -1,2 +1,4 @@
-export PATH="$HOME/bin:$HOME/opt/bin:$PATH"
+export PATH="$HOME/bin:$HOME/opt/bin:/usr/local/bin:$PATH"
 
+# Yes, really
+export PATH=$PATH:/sbin:/usr/sbin

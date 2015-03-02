@@ -105,8 +105,6 @@ fi
 # Tell antigen that you're done.
 antigen apply
 
-export VISUAL=vim
-export GREP_OPTIONS='--color=always'
 
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
@@ -212,17 +210,12 @@ if [ -z "$SCREEN_COLORS" ] ; then
     SCREEN_COLORS=`tput colors`
 fi
 
-# Yes, really
-export PATH=$PATH:~/bin
-export PATH=$PATH:/sbin:/usr/sbin
-
 # Constantly needing this
 autoload -U zcalc
 alias info='info --vi-keys'
 
 mkcd() { mkdir -p $@; cd $_ }
 
-export PATH="~/bin:/usr/local/bin:$PATH"
 BASE="$HOME/.dotfiles/zsh"
 
 CORE=(
