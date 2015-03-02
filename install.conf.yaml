@@ -9,6 +9,7 @@
     ~/.vim: vim/
     ~/.zshrc: zshrc
     ~/.bashrc: bashrc
+    ~/.ctags: ctags
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

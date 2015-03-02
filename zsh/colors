@@ -1,0 +1,1 @@
+eval $( dircolors -b ~/.dotfiles/modules/LS_COLORS/LS_COLORS )
