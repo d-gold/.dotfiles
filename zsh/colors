@@ -1,0 +1,4 @@
+eval $( dircolors -b ~/.dotfiles/modules/LS_COLORS/LS_COLORS )
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+

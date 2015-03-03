@@ -12,7 +12,12 @@ is_osx () {
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-[[ -f ~/.dotfiles/zsh/zsh_pre ]] && . ~/.dotfiles/zsh/zsh_pre
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/home/dgold/.gvm/bin/gvm-init.sh" ]] && source "/home/dgold/.gvm/bin/gvm-init.sh"
+
+# For historical purposes
+HISTSIZE=10000
+SAVEHIST=8500
 
 source "$HOME/.antigen/antigen.zsh"
 
@@ -105,8 +110,6 @@ fi
 # Tell antigen that you're done.
 antigen apply
 
-export VISUAL=vim
-export GREP_OPTIONS='--color=always'
 
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
@@ -212,24 +215,36 @@ if [ -z "$SCREEN_COLORS" ] ; then
     SCREEN_COLORS=`tput colors`
 fi
 
-# Yes, really
-export PATH=$PATH:~/bin
-export PATH=$PATH:/sbin:/usr/sbin
-
 # Constantly needing this
 autoload -U zcalc
 alias info='info --vi-keys'
 
 mkcd() { mkdir -p $@; cd $_ }
 
-export PATH="~/bin:/usr/local/bin:$PATH"
+BASE="$HOME/.dotfiles/zsh"
 
-[[ -f ~/.dotfiles/zsh/zsh_aliases ]] && . ~/.dotfiles/zsh/zsh_aliases
-[[ -f ~/.dotfiles/zsh/zsh_completions ]] && . ~/.dotfiles/zsh/zsh_completions
-[[ -f ~/.dotfiles/zsh/zsh_exports ]] && . ~/.dotfiles/zsh/zsh_exports
-[[ -f ~/.dotfiles/zsh/zsh_functions ]] && . ~/.dotfiles/zsh/zsh_functions
-[[ -f ~/.dotfiles/zsh/zsh_keys ]] && . ~/.dotfiles/zsh/zsh_keys
-[[ -f ~/.dotfiles/zsh/zsh_options ]] && . ~/.dotfiles/zsh/zsh_options
+CORE=(
+    completions
+    key_bindings
+    navigation
+    colors
+    editor
+    aliases
+    functions
+    exports
+    path
+    options
+    prompt
+    git
+    haskell
+    python
+    go
+)
+
+for file in $CORE ; do
+    [[ -f "$BASE/$file" ]] && . "$BASE/$file"
+done
+
 
 [[ -f ~/.dotfiles/zsh/zsh_post ]] && . ~/.dotfiles/zsh/zsh_post
 

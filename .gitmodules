@@ -187,3 +187,6 @@
 [submodule "vim/bundle/vim-php-namespace"]
 	path = vim/bundle/vim-php-namespace
 	url = git@github.com:arnaud-lb/vim-php-namespace
+[submodule "modules/LS_COLORS"]
+	path = modules/LS_COLORS
+	url = git@github.com:trapd00r/LS_COLORS.git
