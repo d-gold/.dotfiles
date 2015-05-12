@@ -119,6 +119,19 @@ zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
 autoload -U compinit
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' actionformats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+zstyle ':vcs_info:*' format '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+zstyle ':vcs_info:*' enable hg git bzr svn p4 cvs darcs
+precmd () { vcs_info }
+# PS1='%F{5}[%F{2}%n%F{5}] %F{3}%3~ ${vcs_info_msg_0_}%f%# '
+# PS1='%F{5}[%F{2}%n%F{5}] %F{3}%3~ ${vcs_info_msg_0_}%f%F{blue}(%h)%f%(?::%F{red}(%?%)%f)%# '
+# PS1='%F{5}[%F{2}%n%F{5}@%F{cyan}%m%F{5}] %F{3}%4(~:…/:)%3~ %F{2}${vcs_info_msg_0_}%f%F{blue}[%h]%f%(?::%F{red}(%?%)%f)%# '
+PS1='%b%K{blue}%F{yellow}%B%n%F{magenta}%F{cyan}%m%F{5}%b%k%F{blue}%f %F{3}%4(~:…/:)%3~ %F{2}${vcs_info_msg_0_}%f%F{blue}[%h]%f%(?::%F{red}(%?%)%f)%# '
+
+#       
+
+
 
 
 
@@ -246,7 +259,6 @@ done
 # Source user's zshrc
 [[ -f ~/.zsh_local ]] && . ~/.zsh_local
 [[ -f ~/.zsh_site ]] && . ~/.zsh_site
-
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
