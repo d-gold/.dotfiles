@@ -127,7 +127,7 @@ precmd () { vcs_info }
 # PS1='%F{5}[%F{2}%n%F{5}] %F{3}%3~ ${vcs_info_msg_0_}%f%# '
 # PS1='%F{5}[%F{2}%n%F{5}] %F{3}%3~ ${vcs_info_msg_0_}%f%F{blue}(%h)%f%(?::%F{red}(%?%)%f)%# '
 # PS1='%F{5}[%F{2}%n%F{5}@%F{cyan}%m%F{5}] %F{3}%4(~:…/:)%3~ %F{2}${vcs_info_msg_0_}%f%F{blue}[%h]%f%(?::%F{red}(%?%)%f)%# '
-PS1='%b%K{blue}%F{yellow}%B%n%F{magenta}%F{cyan}%m%F{5}%b%k%F{blue}%f %F{3}%4(~:…/:)%3~ %F{2}${vcs_info_msg_0_}%f%F{blue}[%h]%f%(?::%F{red}(%?%)%f)%# '
+PS1='%b%K{53}%F{yellow}%B%n%F{magenta}  %F{cyan}%m%F{5}%b%K{54}%F{53}%f %F{3}%4(~:…/:)%3~%K{55}%F{53}%F{2}${vcs_info_msg_0_}%K{56}%F{55}%F{blue}[%h]%K{57}%F{56}%f%(?::%F{red}(%?%)%k%F{57})%#%k%F{57}%f '
 
 #       
 
