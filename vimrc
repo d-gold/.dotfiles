@@ -84,6 +84,7 @@ NeoBundle 'bufexplorer.zip' " 6.0.2 Buffer Explorer / Browser
 " Buffers {{{ 
 
 NeoBundle 'moll/vim-bbye'
+NeoBundle 'junegunn/vim-peekaboo'
 
 " }}}
 
@@ -523,6 +524,8 @@ NeoBundleLazy 'ctrlpvim/ctrlp.vim'
 " Misc. {{{
 
 NeoBundle 'ivyl/vim-bling' " Flash search results
+NeoBundle 'junegunn/vim-emoji' " Named Emoji in Vim
+NeoBundle 'rhysd/unite-emoji.vim' " A unite.vim source for GitHub emojis
 
 " }}}
 
@@ -585,6 +588,8 @@ NeoBundle 'autowitch/hive.vim' " Hive syntax highlighting and stuff
 NeoBundle 'pig.vim' " 0.5   Pig language syntax highlighting
 NeoBundle 'inform.vim' " 0.5   Indenting for Inform
 
+NeoBundle 'junegunn/rainbow_parentheses.vim'
+
 " }}}
 
 " }}}
@@ -628,6 +633,17 @@ NeoBundle 'thinca/vim-portal' " Hello and, again, this is the Portal Gun for Vim
 " NeoBundle 'yavdb' " 0.1   Yet Another (Generic) Vim Debugger Integration
 " NeoBundle 'idbrii/AsyncCommand' 
 " NeoBundle 'Vim-JDE' " 2.00.11 Vim - Just a Development Envirement (Java/C++)
+NeoBundle 'mhinz/vim-signify'
+NeoBundle 'junegunn/vim-github-dashboard'
+NeoBundle 'junegunn/seoul256.vim'
+NeoBundle 'justinmk/vim-gtfo'
+NeoBundle 'guns/vim-clojure-static'
+NeoBundle 'guns/vim-clojure-highlight'
+NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'vim-scripts/perforce' " Feature Rich Perforce SCM Integration.
+NeoBundle 'genutils' " 1.0.7 General utility functions
+" NeoBundle 'vim-scripts/perforce.vim' " Perforce source control features
+NeoBundle 'phildubach/vim-perforce' " Tools for Perforce integration
 
 " }}}
 
@@ -1003,6 +1019,93 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Functions {{{ ===============================================================
 
+" ----------------------------------------------------------------------------
+" <Leader>? | Google it
+" ----------------------------------------------------------------------------
+function! s:goog()
+  let url = 'https://www.google.co.kr/search?q='
+  " Excerpt from vim-unimpared
+  let q = substitute(
+        \ '"'.@0.'"',
+        \ '[^A-Za-z0-9_.~-]',
+        \ '\="%".printf("%02X", char2nr(submatch(0)))',
+        \ 'g')
+  call system('open ' . url . q)
+endfunction
+
+xnoremap <leader>? y:call <SID>goog()<cr>
+
+" ----------------------------------------------------------------------------
+" HL | Find out syntax group
+" ----------------------------------------------------------------------------
+function! s:hl()
+  " echo synIDattr(synID(line('.'), col('.'), 0), 'name')
+  echo join(map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")'), '/')
+endfunction
+command! HL call <SID>hl()
+
+" ----------------------------------------------------------------------------
+" :A
+" ----------------------------------------------------------------------------
+function! s:a()
+  let name = expand('%:r')
+  let ext = tolower(expand('%:e'))
+  let sources = ['c', 'cc', 'cpp', 'cxx']
+  let headers = ['h', 'hh', 'hpp', 'hxx']
+  for pair in [[sources, headers], [headers, sources]]
+    let [set1, set2] = pair
+    if index(set1, ext) >= 0
+      for h in set2
+        let aname = name.'.'.h
+        for a in [aname, toupper(aname)]
+          if filereadable(a)
+            execute 'e' a
+            return
+          end
+        endfor
+      endfor
+    endif
+  endfor
+endfunction
+command! A call s:a()
+
+
+" ----------------------------------------------------------------------------
+" EX | chmod +x
+" ----------------------------------------------------------------------------
+command! EX if !empty(expand('%')) && filereadable(expand('%'))
+         \|   silent! execute '!chmod +x %'
+         \|   redraw!
+         \| else
+         \|   echohl WarningMsg
+         \|   echo 'Save the file first'
+         \|   echohl None
+         \| endif
+
+" ----------------------------------------------------------------------------
+" call LSD()
+" ----------------------------------------------------------------------------
+function! LSD()
+  syntax clear
+
+  for i in range(16, 255)
+    execute printf('highlight LSD%s ctermfg=%s', i - 16, i)
+  endfor
+
+  let block = 4
+  for l in range(1, line('$'))
+    let c = 1
+    let max = len(getline(l))
+    while c < max
+      let stride = 4 + reltime()[1] % 8
+      execute printf('syntax region lsd%s_%s start=/\%%%sl\%%%sc/ end=/\%%%sl\%%%sc/ contains=ALL', l, c, l, c, l, min([c + stride, max]))
+      let rand = abs(reltime()[1] % (256 - 16))
+      execute printf('hi def link lsd%s_%s LSD%s', l, c, rand)
+      let c += stride
+    endwhile
+  endfor
+endfunction
+
 " Make a dir if no exists {{{
 
 function! MakeDirIfNoExists(path)
@@ -1068,6 +1171,33 @@ function! SetMaths()
     "hi! Conceal ctermbg=Black ctermfg=LightGreen
     hi! Conceal ctermfg=LightGreen
 endfunction
+
+" }}}
+
+" Todo {{{
+
+" ----------------------------------------------------------------------------
+" Todo
+" ----------------------------------------------------------------------------
+function! s:todo() abort
+  let entries = []
+  for cmd in ['git grep -n -e TODO -e FIXME -e XXX 2> /dev/null',
+            \ 'grep -rn -e TODO -e FIXME -e XXX * 2> /dev/null']
+    let lines = split(system(cmd), '\n')
+    if v:shell_error != 0 | continue | endif
+    for line in lines
+      let [fname, lno, text] = matchlist(line, '^\([^:]*\):\([^:]*\):\(.*\)')[1:3]
+      call add(entries, { 'filename': fname, 'lnum': lno, 'text': text })
+    endfor
+    break
+  endfor
+
+  if !empty(entries)
+    call setqflist(entries)
+    copen
+  endif
+endfunction
+command! Todo call s:todo()
 
 " }}}
 
@@ -1371,6 +1501,18 @@ let g:EclimCompletionMethod = 'omnifunc'
 " Key Mapping {{{
 
 nnoremap <LocalLeader><Space> <PageDown>
+
+" jk | Escaping!
+inoremap jk <Esc>
+xnoremap jk <Esc>
+cnoremap jk <C-c>
+
+" Movement in insert mode
+inoremap <C-h> <C-o>h
+inoremap <C-l> <C-o>a
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
+inoremap <C-^> <C-o><C-^>
 
 " F Keys {{{
 "

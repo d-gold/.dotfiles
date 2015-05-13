@@ -951,7 +951,7 @@ alias 755='chmod 755'
 alias 775='chmod 775'
 alias mx='chmod a+x'
 alias perm='stat --printf "%a %n \n "'								# requires a file name e.g. perm file
-alias restoremod='chgrp users -R .;chmod u=rwX,g=rX,o=rX -R .;chown $(pwd |cut -d / -f 3) -R .'	# restore user,group and mod of an entire website
+alias restoremod='chgrp users -r .;chmod u=rwx,g=rx,o=rx -r .;chown $(pwd |cut -d / -f 3) -r .'	# restore user,group and mod of an entire website
 
 
 
