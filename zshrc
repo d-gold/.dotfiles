@@ -12,7 +12,12 @@ is_osx () {
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-[[ -f ~/.dotfiles/zsh/zsh_pre ]] && . ~/.dotfiles/zsh/zsh_pre
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/home/dgold/.gvm/bin/gvm-init.sh" ]] && source "/home/dgold/.gvm/bin/gvm-init.sh"
+
+# For historical purposes
+HISTSIZE=10000
+SAVEHIST=8500
 
 source "$HOME/.antigen/antigen.zsh"
 
