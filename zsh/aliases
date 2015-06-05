@@ -7,8 +7,8 @@ alias -g EO='>|/dev/null'
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
-alias -g CA="2>&1 | cat -A"
 alias -g C='| wc -l'
+alias -g CA="2>&1 | cat -A"
 alias -g D="DISPLAY=:0.0"
 alias -g DN=/dev/null
 alias -g ED="export DISPLAY=:0.0"
@@ -23,6 +23,7 @@ alias -g G='| egrep'
 alias -g GI='| egrep -i -'
 alias -g H='| head'
 alias -g HL='|& head -20'
+alias -g J='| underscore print --color'
 alias -g L="| less"
 alias -g LA='2>&1 | less -SR'
 alias -g LAF='2>&1 | less -SR +F'
@@ -45,10 +46,10 @@ alias -g TL='| tail -20'
 alias -g T='| tail'
 alias -g US='| sort -u'
 alias -g VM=/var/log/messages
+alias -g X='| xargs'
 alias -g X0G='| xargs -0 egrep'
 alias -g X0='| xargs -0'
 alias -g XG='| xargs egrep'
-alias -g X='| xargs'
 
 alias -s log="less +F -SR "
 
@@ -348,6 +349,15 @@ alias gitb='git branch'
 alias gits='git status'
 alias gitc='git checkout'
 
+##################################################
+# Perforce stuff					 #
+##################################################
+
+alias p4f='p4 -I fetch -v'
+alias p4ca='p4 changes -l -m 10'
+alias p4c='p4 changes -l -m 10 -u $USER'
+alias p4cs='p4 changes -m 25 -u $USER'
+
 
 
 # ##################################################
@@ -553,7 +563,7 @@ alias weeknum='date +%V'								# perl one-liner to get the current week number 
 # # alias +++='+;+;+'
 # # alias ++++='+;+;+;+'
 # # alias +++++='+;+;+;+;+'
-# alias addrepo='sudo add-apt-repository'							# add a repo to repo .list
+alias addrepo='sudo add-apt-repository'							# add a repo to repo .list
 # alias adobenospy='for A in ~/.adobe ~/.macromedia ; do ( [ -d $A ] && rm -rf $A ; ln -s -f /dev/null $A ) ; done'	# brute force way to block all LSO cookies with the non-free Flash browser plugin
 # alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert$//"'	# notified when job run in terminal is done using NotifyOSD
 # alias alert='notify-send -i gnome-terminal "Finished Terminal Job" "[$?] $(alert_helper)"'	# usage: sleep 5; alert
@@ -658,7 +668,7 @@ alias du1='du --max-depth=1'
 # alias screen_restart='sudo /etc/init.d/gdm restart'					# restarts screen to login screen so as to get back in
 # alias sdiff='/usr/bin/sdiff --expand-tabs --ignore-all-space --strip-trailing-cr --width=160'	# sdiff the way it was at IBM
 # alias sdirs='source ~/.dirs'
-# alias service='sudo service'								# access a system service
+alias service='sudo service'								# access a system service
 # alias sh_diff='diff -abBpur'
 # alias sh_indent='indent -nsaf -npcs -cli2 -i2 -lp -nprs -nsaw -nut -cbi2 -bli0 -bls -nbad -npsl'
 # alias shot!='archey && scrot -d 5 -c screen_`date +%Y-%m-%d`.png'			# is also a function of shot which does the screen for one window
@@ -666,7 +676,7 @@ alias du1='du --max-depth=1'
 # alias show-colors='~/.bin/colors.sh'
 # alias show-info='~/.bin/info.pl'
 # alias show_options='shopt'								# show_options: display bash options settings
-# alias showrepo='cat /etc/apt/sources.list `ls /etc/apt/sources.list.d/*.list` | egrep -v "^$"'
+alias showrepo='cat /etc/apt/sources.list `ls /etc/apt/sources.list.d/*.list` | egrep -v "^$"'
 # alias sh_svnstat="svn status | awk '/^[^?]/'"
 # alias sourcea='source ~/.aliases.bash'							# to source this file (to make changes active after editing)
 # alias ssinfo='perl ~/.scripts/ssinfo.pl'

@@ -65,6 +65,7 @@ NeoBundle 'Shougo/vimproc', {
 
 "NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'tsaleh/vim-supertab' " Clone of the supertab.vba file, since I think VBA files are a freaking abomination.
 
 " Note: Jedi is only for python.
 NeoBundle "davidhalter/jedi-vim"
@@ -547,7 +548,7 @@ NeoBundle 'honza/vim-snippets'
 
 " Source Control {{{
 
-NeoBundle 'tpope/vim-fugitive'
+"NeoBundle 'tpope/vim-fugitive' " !!! Has problems with WildignoreFromGitignore
 NeoBundleLazy 'gregsexton/gitv', {'depends':['tpope/vim-fugitive'],
             \ 'autoload':{'commands':'Gitv'}}
 NeoBundle 'airblade/vim-gitgutter'
@@ -636,14 +637,14 @@ NeoBundle 'thinca/vim-portal' " Hello and, again, this is the Portal Gun for Vim
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'junegunn/vim-github-dashboard'
 NeoBundle 'junegunn/seoul256.vim'
-NeoBundle 'justinmk/vim-gtfo'
+" NeoBundle 'justinmk/vim-gtfo'
 NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'guns/vim-clojure-highlight'
-NeoBundle 'junegunn/vim-easy-align'
+" NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'vim-scripts/perforce' " Feature Rich Perforce SCM Integration.
 NeoBundle 'genutils' " 1.0.7 General utility functions
 " NeoBundle 'vim-scripts/perforce.vim' " Perforce source control features
-NeoBundle 'phildubach/vim-perforce' " Tools for Perforce integration
+" NeoBundle 'phildubach/vim-perforce' " Tools for Perforce integration
 
 " }}}
 
@@ -963,10 +964,21 @@ let g:vim_tags_auto_generate = 1
 
 " UtilSnips {{{
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsExpandTrigger=<F2>
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+" let g:UltiSnipsEditSplit="vertical"
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-s-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-s-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " }}}
 
@@ -1500,28 +1512,28 @@ let g:EclimCompletionMethod = 'omnifunc'
 
 " Key Mapping {{{
 
-nnoremap <LocalLeader><Space> <PageDown>
+" nnoremap <LocalLeader><Space> <PageDown>
 
-" jk | Escaping!
+" " jk | Escaping!
 inoremap jk <Esc>
-xnoremap jk <Esc>
-cnoremap jk <C-c>
+"xnoremap jk <Esc>
+"cnoremap jk <C-c>
 
-" Movement in insert mode
-inoremap <C-h> <C-o>h
-inoremap <C-l> <C-o>a
-inoremap <C-j> <C-o>j
-inoremap <C-k> <C-o>k
-inoremap <C-^> <C-o><C-^>
+" " Movement in insert mode
+" " inoremap <C-h> <C-o>h
+" " inoremap <C-l> <C-o>a
+" " inoremap <C-j> <C-o>j
+" " inoremap <C-k> <C-o>k
+" " inoremap <C-^> <C-o><C-^>
 
 " F Keys {{{
 "
 map <F3> :GundoToggle<CR>
 map <F4> :NERDTreeToggle<CR>
 map <F5> :TagbarToggle<CR>
-nmap <silent> <unique> <F7> :BufExplorer<CR>
-nmap <silent> <unique> <C-F7> :BufExplorerHorizontalSplit<CR>
-nmap <silent> <unique> <S-F7> :BufExplorerVerticalSplit<CR>
+nnoremap <silent> <unique> <F7> :BufExplorer<CR>
+nnoremap <silent> <unique> <C-F7> :BufExplorerHorizontalSplit<CR>
+nnoremap <silent> <unique> <S-F7> :BufExplorerVerticalSplit<CR>
 
 " }}}
 
